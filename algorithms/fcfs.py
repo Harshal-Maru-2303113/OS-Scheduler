@@ -33,6 +33,10 @@ def fcfs(data, context_switch=0.0):
     stats = {}
     current_time = 0.0
 
+    # if empty, return early
+    if not sorted_data:
+        return timeline, stats
+
     for pid, (arrival, burst, _) in sorted_data:
         # Convert arrival and burst to float
         arrival = float(arrival)

@@ -33,6 +33,10 @@ def hpf(data, context_switch=0.0):
     current_time = sorted_data[0][1][0] if sorted_data else 0.0
     ready = []
     
+    # if empty, return early
+    if not sorted_data:
+        return timeline, stats
+    
     i = 0
     n = len(sorted_data)
     
