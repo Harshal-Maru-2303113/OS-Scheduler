@@ -22,7 +22,7 @@ def srtn(data, quantum=0.5, context_switch=0.0):
     """
 
     # Sort processes by arrival time and PID
-    sorted_data = sorted(data.sorted_data(), key=lambda kv: (kv[1][0], int(kv[0])))
+    sorted_data = sorted(data.items(), key=lambda kv: (kv[1][0], int(kv[0])))
     timeline = []
     stats = {}
 
@@ -60,7 +60,7 @@ def srtn(data, quantum=0.5, context_switch=0.0):
             break
 
         # Select process with the shortest remaining time
-        pid = min(active.sorted_data(), key=lambda kv: (kv[1], int(kv[0])))[0]
+        pid = min(active.items(), key=lambda kv: (kv[1], int(kv[0])))[0]
         step = min(active[pid], quantum)
 
         # Execute the selected process

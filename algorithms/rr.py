@@ -21,7 +21,7 @@ def rr(data, quantum=1.0, context_switch=0.0):
     """
     
     # Sort processes by arrival time (tie-break by PID)
-    sorted_data = sorted(data.sorted_data(), key=lambda kv: (kv[1][0], int(kv[0])))
+    sorted_data = sorted(data.items(), key=lambda kv: (kv[1][0], int(kv[0])))
     
     timeline = []
     stats = {}
